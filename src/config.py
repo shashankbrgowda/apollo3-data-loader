@@ -7,7 +7,7 @@ FASTA_FILE_OUTPUT_DIRECTORY = '/Users/shabr/PythonProjects/apollo3-data-loader/o
 FILE_CHUNK_SIZE = 4096
 
 # 256kb
-DB_CHUNK_SIZE = 262144
+DB_CHUNK_SIZE = 100
 
 MONGO_CONNECTION_URL = 'mongodb://localhost:27017/apolloDb?directConnection=true&replicaSet=rs0'
 MONGO_DB_NAME = 'apolloDb'

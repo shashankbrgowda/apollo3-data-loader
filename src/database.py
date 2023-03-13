@@ -5,14 +5,6 @@ import config
 
 class Database:
     _client = None  # shared client instance
-    _instance = None
-
-    def __new__(cls):
-        if cls._instance is None:
-            # print('creating new db connection instance')
-            cls._instance = super().__new__(cls)
-            cls._instance._client = cls.get_client()
-        return cls._instance
 
     @classmethod
     def get_client(cls):
@@ -25,6 +17,7 @@ class Database:
         return cls._client
 
     def __init__(self):
+        # print('creating new db connection instance')
         self._client = Database.get_client()
         self._db = self._client[config.MONGO_DB_NAME]
         self.id = self._client.options
