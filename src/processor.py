@@ -60,23 +60,6 @@ def _compress_compute_hash(file_path, file_chunk_size):
         print(f'Error: failed to read fasta file = {file_name}, error = {ex}')
 
 
-def _create_refseqs(db, name, desc, asm_id, db_chunk_size, user):
-    return db.refseqs.insert_one({
-        'name': name,
-        'description': desc,
-        'assembly': asm_id,
-        'length': 0,
-        'chunkSize': db_chunk_size,
-        'user': user,
-        'status': 0,
-    })
-
-
-def _update_refseqs_len(db, inserted_id, asm_id, length):
-    db.refseqs.update_one({'_id': inserted_id, 'assembly': asm_id},
-                          {'$set': {'length': length}})
-
-
 def _process_fasta_file(file_path, file_chunk_size, db_chunk_size):
     """
     Compresses a file using gzip, saves it to a file with a name based on its checksum and reads the
@@ -198,6 +181,23 @@ def _process_fasta_file(file_path, file_chunk_size, db_chunk_size):
 
     end_time = datetime.datetime.now().replace(microsecond=0)
     print(f'Time taken to process file {file_name} = {end_time - start_time}')
+
+
+def _create_refseqs(db, name, desc, asm_id, db_chunk_size, user):
+    return db.refseqs.insert_one({
+        'name': name,
+        'description': desc,
+        'assembly': asm_id,
+        'length': 0,
+        'chunkSize': db_chunk_size,
+        'user': user,
+        'status': 0,
+    })
+
+
+def _update_refseqs_len(db, inserted_id, asm_id, length):
+    db.refseqs.update_one({'_id': inserted_id, 'assembly': asm_id},
+                          {'$set': {'length': length}})
 
 
 def _create_refseqchunks(db, inserted_id, index, sequence, user):
