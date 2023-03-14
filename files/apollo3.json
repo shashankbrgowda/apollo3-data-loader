@@ -1,0 +1,17 @@
+{
+  "config": [
+    {
+      "fasta-file-path": "https://ftp.ensembl.org/pub/release-109/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.chromosome.18.fa.gz",
+      "gff3-file-path": "https://ftp.ensembl.org/pub/release-109/gff3/mus_musculus/Mus_musculus.GRCm39.109.chromosome.18.gff3.gz",
+      "assembly-name": "Mus_musculus_GRCm39_109_chr_18"
+    },
+    {
+      "fasta-file-path": "https://ftp.ensembl.org/pub/release-109/fasta/mus_musculus/dna/Mus_musculus.GRCm39.dna.chromosome.19.fa.gz",
+      "gff3-file-path": "https://ftp.ensembl.org/pub/release-109/gff3/mus_musculus/Mus_musculus.GRCm39.109.chromosome.19.gff3.gz",
+      "assembly-name": "Mus_musculus_GRCm39_109_chr_19"
+    }
+  ],
+  "file-chunk-size": 262144,
+  "db-chunk-size": 262144,
+  "username": "shabr"
+}
